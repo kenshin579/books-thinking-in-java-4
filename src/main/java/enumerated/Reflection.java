@@ -37,7 +37,9 @@ public class Reflection {
         exploreMethods.removeAll(enumMethods);
         print(exploreMethods);
         // Decompile the code for the enum:
-        OSExecute.command("javap Explore");
+//        OSExecute.command("javap Explore");
+        String className = Explore.class.getProtectionDomain().getCodeSource().getLocation().getFile() + Explore.class.getName().replace(".", "/") + ".class";
+        OSExecute.command("javap " + className);
     }
 } /* Output:
 ----- Analyzing class Explore -----

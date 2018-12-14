@@ -19,7 +19,7 @@ public class EnumClass {
         }
         // Produce an enum value from a string name:
         for (String s : "HANGING CRAWLING GROUND".split(" ")) {
-            Shrubbery shrub = Enum.valueOf(Shrubbery.class, s);
+            Shrubbery shrub = Enum.valueOf(Shrubbery.class, s); //Enum 타입을 반환함
             print(shrub);
         }
     }
