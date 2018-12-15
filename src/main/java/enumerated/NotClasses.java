@@ -1,6 +1,8 @@
 package enumerated;
 // {Exec: javap -c LikeClasses}
 
+import net.mindview.util.OSExecute;
+
 import static net.mindview.util.Print.print;
 
 enum LikeClasses {
@@ -24,7 +26,12 @@ enum LikeClasses {
 }
 
 public class NotClasses {
-    // void f1(LikeClasses.WINKEN instance) {} // Nope
+    //     void f1(LikeClasses.WINKEN instance) {} // Nope
+
+    public static void main(String[] args) {
+        String className = LikeClasses.class.getProtectionDomain().getCodeSource().getLocation().getFile() + LikeClasses.class.getName().replace(".", "/") + ".class";
+        OSExecute.command("javap " + className);
+    }
 } /* Output:
 Compiled from "NotClasses.java"
 abstract class LikeClasses extends java.lang.Enum{

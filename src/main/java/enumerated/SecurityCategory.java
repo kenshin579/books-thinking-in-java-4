@@ -24,6 +24,9 @@ enum SecurityCategory {
         return Enums.random(values);
     }
 
+    /*
+    todo: 묶음으로 정의함. 다른 걸로 정의할 수 있나?
+     */
     interface Security {
         enum Stock implements Security {SHORT, LONG, MARGIN}
 

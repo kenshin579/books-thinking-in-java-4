@@ -6,8 +6,7 @@ import net.mindview.util.Generator;
 
 import java.util.Random;
 
-enum CartoonCharacter
-        implements Generator<CartoonCharacter> {
+enum CartoonCharacter implements Generator<CartoonCharacter> {
     SLAPPY, SPANKY, PUNCHY, SILLY, BOUNCY, NUTTY, BOB;
     private Random rand = new Random(47);
 

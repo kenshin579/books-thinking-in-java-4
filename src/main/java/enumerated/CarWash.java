@@ -5,34 +5,7 @@ import java.util.EnumSet;
 import static net.mindview.util.Print.print;
 
 public class CarWash {
-    EnumSet<Cycle> cycles =
-            EnumSet.of(Cycle.BASIC, Cycle.RINSE);
-
-    public static void main(String[] args) {
-        CarWash wash = new CarWash();
-        print(wash);
-        wash.washCar();
-        // Order of addition is unimportant:
-        wash.add(Cycle.BLOWDRY);
-        wash.add(Cycle.BLOWDRY); // Duplicates ignored
-        wash.add(Cycle.RINSE);
-        wash.add(Cycle.HOTWAX);
-        print(wash);
-        wash.washCar();
-    }
-
-    public void add(Cycle cycle) {
-        cycles.add(cycle);
-    }
-
-    public void washCar() {
-        for (Cycle c : cycles)
-            c.action();
-    }
-
-    public String toString() {
-        return cycles.toString();
-    }
+    EnumSet<Cycle> cycles = EnumSet.of(Cycle.BASIC, Cycle.RINSE);
 
     public enum Cycle {
         UNDERBODY {
@@ -72,6 +45,32 @@ public class CarWash {
         };
 
         abstract void action();
+    }
+
+    public static void main(String[] args) {
+        CarWash wash = new CarWash();
+        print(wash);
+        wash.washCar();
+        // Order of addition is unimportant:
+        wash.add(Cycle.BLOWDRY);
+        wash.add(Cycle.BLOWDRY); // Duplicates ignored
+        wash.add(Cycle.RINSE);
+        wash.add(Cycle.HOTWAX);
+        print(wash);
+        wash.washCar();
+    }
+
+    public void add(Cycle cycle) {
+        cycles.add(cycle);
+    }
+
+    public void washCar() {
+        for (Cycle c : cycles)
+            c.action();
+    }
+
+    public String toString() {
+        return cycles.toString();
     }
 } /* Output:
 [BASIC, RINSE]
